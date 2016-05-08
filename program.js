@@ -1,31 +1,29 @@
-var filterFunc = require("./modules.js");
-var dir = process.argv[2];
-var stringFilterFunc = process.argv[3];
+// ************ HTTP CLIENT ****************
 
-filterFunc(dir, stringFilterFunc, function(err,files){
-    if(err)
-        return console.error("There was an error: ", err)
-
-    files.forEach(function(file){
-      console.log(file);
-    })
-
-});
+require('http').get(process.argv[2], function(stream){
+  stream.setEncoding('utf8')
+  stream.on('data', console.log)
+  stream.on('error', console.error)
+})
 
 
 
 
+// *************   Make it Modular *****************
 
-
-
-
-
-
-
-
-
-
-
+// var filterFunc = require("./modules.js");
+// var dir = process.argv[2];
+// var stringFilterFunc = process.argv[3];
+//
+// filterFunc(dir, stringFilterFunc, function(err,files){
+//     if(err)
+//         return console.error("There was an error: ", err)
+//
+//     files.forEach(function(file){
+//       console.log(file);
+//     })
+//
+// });
 
 
 
