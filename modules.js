@@ -11,6 +11,6 @@ module.exports = function (dir, filterStr, callback) {
       return path.extname(file) === '.' + filterStr
     })
 
-    callback(null, list)  
+    callback(null, list)
   })
 }
